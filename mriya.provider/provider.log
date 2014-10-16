@@ -1,0 +1,440 @@
+2014-09-18 14:11:00,353 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 14:11:00,356 - org.apache.mina.filter.logging.LoggingFilter -3    [NioProcessor-3] INFO   - OPENED
+2014-09-18 14:11:00,361 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -8    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 14:11:00,368 - org.apache.mina.core.filterchain.IoFilterEvent -15   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 14:11:00,375 - org.apache.mina.core.filterchain.IoFilterEvent -22   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 14:11:00,454 - org.apache.mina.filter.codec.ProtocolCodecFilter -101  [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 14:11:00,462 - org.apache.mina.filter.logging.LoggingFilter -109  [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=smsService, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:11:00,463 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -110  [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 14:11:00,463 - org.apache.mina.core.filterchain.IoFilterEvent -110  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 14:11:00,464 - org.apache.mina.filter.logging.LoggingFilter -111  [pool-3-thread-1] WARN   - EXCEPTION :
+com.cmcc.mriya.client.exception.MriyaRuntimeException: bean [smsService] not found.
+	at com.cmcc.mriya.provider.server.ServerHandler.messageReceived(ServerHandler.java:84)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:716)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:434)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:46)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:796)
+	at org.apache.mina.core.filterchain.IoFilterEvent.fire(IoFilterEvent.java:75)
+	at org.apache.mina.core.session.IoEvent.run(IoEvent.java:63)
+	at org.apache.mina.filter.executor.OrderedThreadPoolExecutor$Worker.runTask(OrderedThreadPoolExecutor.java:780)
+	at org.apache.mina.filter.executor.OrderedThreadPoolExecutor$Worker.runTasks(OrderedThreadPoolExecutor.java:772)
+	at org.apache.mina.filter.executor.OrderedThreadPoolExecutor$Worker.run(OrderedThreadPoolExecutor.java:714)
+	at java.lang.Thread.run(Thread.java:745)
+2014-09-18 14:11:00,466 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -113  [pool-3-thread-1] DEBUG  - Adding event EXCEPTION_CAUGHT to session 2
+Queue : [EXCEPTION_CAUGHT, ]
+
+2014-09-18 14:11:00,466 - org.apache.mina.core.filterchain.IoFilterEvent -113  [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 14:11:00,466 - org.apache.mina.core.filterchain.IoFilterEvent -113  [pool-3-thread-1] DEBUG  - Firing a EXCEPTION_CAUGHT event for session 2
+2014-09-18 14:11:00,467 - org.apache.mina.core.filterchain.IoFilterEvent -114  [pool-3-thread-1] DEBUG  - Event EXCEPTION_CAUGHT has been fired for session 2
+2014-09-18 14:11:00,468 - org.apache.mina.filter.logging.LoggingFilter -115  [NioProcessor-3] INFO   - CLOSED
+2014-09-18 14:11:00,468 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -115  [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 14:11:00,469 - org.apache.mina.core.filterchain.IoFilterEvent -116  [pool-3-thread-2] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 14:11:00,470 - org.apache.mina.core.filterchain.IoFilterEvent -117  [pool-3-thread-2] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 14:12:01,727 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 14:12:01,730 - org.apache.mina.filter.logging.LoggingFilter -3    [NioProcessor-3] INFO   - OPENED
+2014-09-18 14:12:01,733 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -6    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 14:12:01,738 - org.apache.mina.core.filterchain.IoFilterEvent -11   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 14:12:01,739 - org.apache.mina.core.filterchain.IoFilterEvent -12   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 14:12:01,821 - org.apache.mina.filter.codec.ProtocolCodecFilter -94   [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 14:12:01,827 - org.apache.mina.filter.logging.LoggingFilter -100  [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:12:01,827 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -100  [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 14:12:01,827 - org.apache.mina.core.filterchain.IoFilterEvent -100  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 14:12:01,829 - org.apache.mina.filter.logging.LoggingFilter -102  [pool-3-thread-1] WARN   - EXCEPTION :
+com.cmcc.mriya.client.exception.MriyaRuntimeException: bean [hello] not found.
+	at com.cmcc.mriya.provider.server.ServerHandler.messageReceived(ServerHandler.java:84)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:716)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:434)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:46)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:796)
+	at org.apache.mina.core.filterchain.IoFilterEvent.fire(IoFilterEvent.java:75)
+	at org.apache.mina.core.session.IoEvent.run(IoEvent.java:63)
+	at org.apache.mina.filter.executor.OrderedThreadPoolExecutor$Worker.runTask(OrderedThreadPoolExecutor.java:780)
+	at org.apache.mina.filter.executor.OrderedThreadPoolExecutor$Worker.runTasks(OrderedThreadPoolExecutor.java:772)
+	at org.apache.mina.filter.executor.OrderedThreadPoolExecutor$Worker.run(OrderedThreadPoolExecutor.java:714)
+	at java.lang.Thread.run(Thread.java:745)
+2014-09-18 14:12:01,831 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -104  [pool-3-thread-1] DEBUG  - Adding event EXCEPTION_CAUGHT to session 2
+Queue : [EXCEPTION_CAUGHT, ]
+
+2014-09-18 14:12:01,831 - org.apache.mina.core.filterchain.IoFilterEvent -104  [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 14:12:01,831 - org.apache.mina.core.filterchain.IoFilterEvent -104  [pool-3-thread-1] DEBUG  - Firing a EXCEPTION_CAUGHT event for session 2
+2014-09-18 14:12:01,832 - org.apache.mina.core.filterchain.IoFilterEvent -105  [pool-3-thread-1] DEBUG  - Event EXCEPTION_CAUGHT has been fired for session 2
+2014-09-18 14:12:01,834 - org.apache.mina.filter.logging.LoggingFilter -107  [NioProcessor-3] INFO   - CLOSED
+2014-09-18 14:12:01,835 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -108  [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 14:12:01,836 - org.apache.mina.core.filterchain.IoFilterEvent -109  [pool-3-thread-1] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 14:12:01,836 - org.apache.mina.core.filterchain.IoFilterEvent -109  [pool-3-thread-1] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 14:13:56,129 - org.apache.mina.filter.logging.LoggingFilter -1    [NioProcessor-3] INFO   - CREATED
+2014-09-18 14:13:56,132 - org.apache.mina.filter.logging.LoggingFilter -4    [NioProcessor-3] INFO   - OPENED
+2014-09-18 14:13:56,146 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -18   [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 14:13:56,157 - org.apache.mina.core.filterchain.IoFilterEvent -29   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 14:13:56,160 - org.apache.mina.core.filterchain.IoFilterEvent -32   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 14:13:56,216 - org.apache.mina.filter.codec.ProtocolCodecFilter -88   [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 14:13:56,221 - org.apache.mina.filter.logging.LoggingFilter -93   [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:13:56,222 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -94   [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 14:13:56,222 - org.apache.mina.core.filterchain.IoFilterEvent -94   [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 14:14:16,221 - org.apache.mina.filter.logging.LoggingFilter -20093 [NioProcessor-3] INFO   - CLOSED
+2014-09-18 14:14:16,221 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -20093 [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 14:15:02,984 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 14:15:02,987 - org.apache.mina.filter.logging.LoggingFilter -3    [NioProcessor-3] INFO   - OPENED
+2014-09-18 14:15:02,991 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -7    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 14:15:02,996 - org.apache.mina.core.filterchain.IoFilterEvent -12   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 14:15:02,998 - org.apache.mina.core.filterchain.IoFilterEvent -14   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 14:15:03,086 - org.apache.mina.filter.codec.ProtocolCodecFilter -102  [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 14:15:03,093 - org.apache.mina.filter.logging.LoggingFilter -109  [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:15:03,093 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -109  [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 14:15:03,094 - org.apache.mina.core.filterchain.IoFilterEvent -110  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 14:15:17,454 - org.apache.mina.core.filterchain.IoFilterEvent -14470 [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 14:15:17,455 - org.apache.mina.filter.logging.LoggingFilter -14471 [NioProcessor-3] INFO   - SENT: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:15:17,456 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -14472 [NioProcessor-3] DEBUG  - Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+2014-09-18 14:15:17,456 - org.apache.mina.core.filterchain.IoFilterEvent -14472 [pool-3-thread-1] DEBUG  - Firing a MESSAGE_SENT event for session 2
+2014-09-18 14:15:17,456 - org.apache.mina.core.filterchain.IoFilterEvent -14472 [pool-3-thread-1] DEBUG  - Event MESSAGE_SENT has been fired for session 2
+2014-09-18 14:15:17,458 - org.apache.mina.filter.logging.LoggingFilter -14474 [NioProcessor-3] INFO   - CLOSED
+2014-09-18 14:15:17,458 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -14474 [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 14:15:17,459 - org.apache.mina.core.filterchain.IoFilterEvent -14475 [pool-3-thread-1] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 14:15:17,459 - org.apache.mina.core.filterchain.IoFilterEvent -14475 [pool-3-thread-1] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 14:16:21,414 - org.apache.mina.filter.logging.LoggingFilter -78430 [NioProcessor-4] INFO   - CREATED
+2014-09-18 14:16:21,414 - org.apache.mina.filter.logging.LoggingFilter -78430 [NioProcessor-4] INFO   - OPENED
+2014-09-18 14:16:21,415 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -78431 [NioProcessor-4] DEBUG  - Adding event SESSION_OPENED to session 3
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 14:16:21,416 - org.apache.mina.core.filterchain.IoFilterEvent -78432 [pool-3-thread-2] DEBUG  - Firing a SESSION_OPENED event for session 3
+2014-09-18 14:16:21,416 - org.apache.mina.core.filterchain.IoFilterEvent -78432 [pool-3-thread-2] DEBUG  - Event SESSION_OPENED has been fired for session 3
+2014-09-18 14:16:21,486 - org.apache.mina.filter.codec.ProtocolCodecFilter -78502 [NioProcessor-4] DEBUG  - Processing a MESSAGE_RECEIVED for session 3
+2014-09-18 14:16:21,486 - org.apache.mina.filter.logging.LoggingFilter -78502 [NioProcessor-4] INFO   - RECEIVED: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:16:21,487 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -78503 [NioProcessor-4] DEBUG  - Adding event MESSAGE_RECEIVED to session 3
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 14:16:21,487 - org.apache.mina.core.filterchain.IoFilterEvent -78503 [pool-3-thread-2] DEBUG  - Firing a MESSAGE_RECEIVED event for session 3
+2014-09-18 14:16:40,731 - org.apache.mina.core.filterchain.IoFilterEvent -97747 [pool-3-thread-2] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 3
+2014-09-18 14:16:40,731 - org.apache.mina.filter.logging.LoggingFilter -97747 [NioProcessor-4] INFO   - SENT: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:16:40,731 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -97747 [NioProcessor-4] DEBUG  - Adding event MESSAGE_SENT to session 3
+Queue : [MESSAGE_SENT, ]
+
+2014-09-18 14:16:40,732 - org.apache.mina.core.filterchain.IoFilterEvent -97748 [pool-3-thread-2] DEBUG  - Firing a MESSAGE_SENT event for session 3
+2014-09-18 14:16:40,732 - org.apache.mina.core.filterchain.IoFilterEvent -97748 [pool-3-thread-2] DEBUG  - Event MESSAGE_SENT has been fired for session 3
+2014-09-18 14:17:00,750 - org.apache.mina.filter.logging.LoggingFilter -117766 [NioProcessor-4] INFO   - IDLE
+2014-09-18 14:17:00,751 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -117767 [NioProcessor-4] DEBUG  - Adding event SESSION_IDLE to session 3
+Queue : [SESSION_IDLE, ]
+
+2014-09-18 14:17:00,751 - org.apache.mina.core.filterchain.IoFilterEvent -117767 [pool-3-thread-2] DEBUG  - Firing a SESSION_IDLE event for session 3
+2014-09-18 14:17:00,751 - org.apache.mina.core.filterchain.IoFilterEvent -117767 [pool-3-thread-2] DEBUG  - Event SESSION_IDLE has been fired for session 3
+2014-09-18 14:17:00,751 - org.apache.mina.filter.logging.LoggingFilter -117767 [NioProcessor-4] INFO   - CLOSED
+2014-09-18 14:17:00,752 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -117768 [NioProcessor-4] DEBUG  - Adding event SESSION_CLOSED to session 3
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 14:17:00,752 - org.apache.mina.core.filterchain.IoFilterEvent -117768 [pool-3-thread-2] DEBUG  - Firing a SESSION_CLOSED event for session 3
+2014-09-18 14:17:00,752 - org.apache.mina.core.filterchain.IoFilterEvent -117768 [pool-3-thread-2] DEBUG  - Event SESSION_CLOSED has been fired for session 3
+2014-09-18 14:19:11,024 - org.apache.mina.filter.logging.LoggingFilter -1    [NioProcessor-3] INFO   - CREATED
+2014-09-18 14:19:11,028 - org.apache.mina.filter.logging.LoggingFilter -5    [NioProcessor-3] INFO   - OPENED
+2014-09-18 14:19:11,031 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -8    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 14:19:11,035 - org.apache.mina.core.filterchain.IoFilterEvent -12   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 14:19:11,036 - org.apache.mina.core.filterchain.IoFilterEvent -13   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 14:19:11,112 - org.apache.mina.filter.codec.ProtocolCodecFilter -89   [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 14:19:11,121 - org.apache.mina.filter.logging.LoggingFilter -98   [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:19:11,122 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -99   [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 14:19:11,122 - org.apache.mina.core.filterchain.IoFilterEvent -99   [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 14:19:20,428 - org.apache.mina.core.filterchain.IoFilterEvent -9405 [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 14:19:20,429 - org.apache.mina.filter.logging.LoggingFilter -9406 [NioProcessor-3] INFO   - SENT: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:19:20,429 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -9406 [NioProcessor-3] DEBUG  - Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+2014-09-18 14:19:20,431 - org.apache.mina.core.filterchain.IoFilterEvent -9408 [pool-3-thread-1] DEBUG  - Firing a MESSAGE_SENT event for session 2
+2014-09-18 14:19:20,431 - org.apache.mina.core.filterchain.IoFilterEvent -9408 [pool-3-thread-1] DEBUG  - Event MESSAGE_SENT has been fired for session 2
+2014-09-18 14:19:23,253 - org.apache.mina.filter.logging.LoggingFilter -12230 [NioProcessor-3] INFO   - CLOSED
+2014-09-18 14:19:23,253 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -12230 [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 14:19:23,253 - org.apache.mina.core.filterchain.IoFilterEvent -12230 [pool-3-thread-1] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 14:19:23,254 - org.apache.mina.core.filterchain.IoFilterEvent -12231 [pool-3-thread-1] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 14:23:51,946 - org.apache.mina.filter.logging.LoggingFilter -1    [NioProcessor-3] INFO   - CREATED
+2014-09-18 14:23:51,948 - org.apache.mina.filter.logging.LoggingFilter -3    [NioProcessor-3] INFO   - OPENED
+2014-09-18 14:23:51,952 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -7    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 14:23:51,970 - org.apache.mina.core.filterchain.IoFilterEvent -25   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 14:23:51,979 - org.apache.mina.core.filterchain.IoFilterEvent -34   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 14:23:52,084 - org.apache.mina.filter.codec.ProtocolCodecFilter -139  [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 14:23:52,094 - org.apache.mina.filter.logging.LoggingFilter -149  [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hello1, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:23:52,094 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -149  [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 14:23:52,095 - org.apache.mina.core.filterchain.IoFilterEvent -150  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 14:24:09,291 - org.apache.mina.filter.logging.LoggingFilter -17346 [pool-3-thread-1] WARN   - EXCEPTION :
+com.cmcc.mriya.client.exception.MriyaRuntimeException: bean [hello1] not found.
+	at com.cmcc.mriya.provider.server.ServerHandler.messageReceived(ServerHandler.java:84)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:716)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:434)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:46)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:796)
+	at org.apache.mina.core.filterchain.IoFilterEvent.fire(IoFilterEvent.java:75)
+	at org.apache.mina.core.session.IoEvent.run(IoEvent.java:63)
+	at org.apache.mina.filter.executor.OrderedThreadPoolExecutor$Worker.runTask(OrderedThreadPoolExecutor.java:780)
+	at org.apache.mina.filter.executor.OrderedThreadPoolExecutor$Worker.runTasks(OrderedThreadPoolExecutor.java:772)
+	at org.apache.mina.filter.executor.OrderedThreadPoolExecutor$Worker.run(OrderedThreadPoolExecutor.java:714)
+	at java.lang.Thread.run(Thread.java:745)
+2014-09-18 14:24:09,295 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -17350 [pool-3-thread-1] DEBUG  - Adding event EXCEPTION_CAUGHT to session 2
+Queue : [EXCEPTION_CAUGHT, ]
+
+2014-09-18 14:24:09,295 - org.apache.mina.core.filterchain.IoFilterEvent -17350 [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 14:24:09,295 - org.apache.mina.core.filterchain.IoFilterEvent -17350 [pool-3-thread-1] DEBUG  - Firing a EXCEPTION_CAUGHT event for session 2
+2014-09-18 14:24:09,296 - org.apache.mina.core.filterchain.IoFilterEvent -17351 [pool-3-thread-1] DEBUG  - Event EXCEPTION_CAUGHT has been fired for session 2
+2014-09-18 14:24:09,297 - org.apache.mina.filter.logging.LoggingFilter -17352 [NioProcessor-3] INFO   - CLOSED
+2014-09-18 14:24:09,297 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -17352 [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 14:24:09,298 - org.apache.mina.core.filterchain.IoFilterEvent -17353 [pool-3-thread-2] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 14:24:09,298 - org.apache.mina.core.filterchain.IoFilterEvent -17353 [pool-3-thread-2] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 14:25:57,751 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 14:25:57,755 - org.apache.mina.filter.logging.LoggingFilter -4    [NioProcessor-3] INFO   - OPENED
+2014-09-18 14:25:57,759 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -8    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 14:25:57,765 - org.apache.mina.core.filterchain.IoFilterEvent -14   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 14:25:57,767 - org.apache.mina.core.filterchain.IoFilterEvent -16   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 14:25:57,836 - org.apache.mina.filter.codec.ProtocolCodecFilter -85   [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 14:25:57,842 - org.apache.mina.filter.logging.LoggingFilter -91   [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:25:57,842 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -91   [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 14:25:57,842 - org.apache.mina.core.filterchain.IoFilterEvent -91   [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 14:25:57,876 - org.apache.mina.core.filterchain.IoFilterEvent -125  [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 14:25:57,877 - org.apache.mina.filter.logging.LoggingFilter -126  [NioProcessor-3] INFO   - SENT: BaseMessage [version=1, bean=hello, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 14:25:57,877 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -126  [NioProcessor-3] DEBUG  - Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+2014-09-18 14:25:57,877 - org.apache.mina.core.filterchain.IoFilterEvent -126  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_SENT event for session 2
+2014-09-18 14:25:57,878 - org.apache.mina.core.filterchain.IoFilterEvent -127  [pool-3-thread-1] DEBUG  - Event MESSAGE_SENT has been fired for session 2
+2014-09-18 14:25:57,950 - org.apache.mina.filter.logging.LoggingFilter -199  [NioProcessor-3] INFO   - CLOSED
+2014-09-18 14:25:57,950 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -199  [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 14:25:57,951 - org.apache.mina.core.filterchain.IoFilterEvent -200  [pool-3-thread-1] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 14:25:57,952 - org.apache.mina.core.filterchain.IoFilterEvent -201  [pool-3-thread-1] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 15:05:04,405 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 15:05:04,408 - org.apache.mina.filter.logging.LoggingFilter -3    [NioProcessor-3] INFO   - OPENED
+2014-09-18 15:05:04,414 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -9    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:05:04,431 - org.apache.mina.core.filterchain.IoFilterEvent -26   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 15:05:04,433 - org.apache.mina.core.filterchain.IoFilterEvent -28   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 15:05:04,494 - org.apache.mina.filter.codec.ProtocolCodecFilter -89   [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 15:05:04,498 - org.apache.mina.filter.logging.LoggingFilter -93   [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:05:04,499 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -94   [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:05:04,499 - org.apache.mina.core.filterchain.IoFilterEvent -94   [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 15:05:04,572 - org.apache.mina.core.filterchain.IoFilterEvent -167  [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 15:05:04,575 - org.apache.mina.filter.logging.LoggingFilter -170  [NioProcessor-3] INFO   - SENT: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:05:04,576 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -171  [NioProcessor-3] DEBUG  - Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+2014-09-18 15:05:04,576 - org.apache.mina.core.filterchain.IoFilterEvent -171  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_SENT event for session 2
+2014-09-18 15:05:04,576 - org.apache.mina.core.filterchain.IoFilterEvent -171  [pool-3-thread-1] DEBUG  - Event MESSAGE_SENT has been fired for session 2
+2014-09-18 15:05:04,588 - org.apache.mina.filter.logging.LoggingFilter -183  [NioProcessor-3] INFO   - CLOSED
+2014-09-18 15:05:04,589 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -184  [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 15:05:04,589 - org.apache.mina.core.filterchain.IoFilterEvent -184  [pool-3-thread-1] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 15:05:04,589 - org.apache.mina.core.filterchain.IoFilterEvent -184  [pool-3-thread-1] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 15:06:48,917 - org.apache.mina.filter.logging.LoggingFilter -104512 [NioProcessor-4] INFO   - CREATED
+2014-09-18 15:06:48,921 - org.apache.mina.filter.logging.LoggingFilter -104516 [NioProcessor-4] INFO   - OPENED
+2014-09-18 15:06:48,922 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -104517 [NioProcessor-4] DEBUG  - Adding event SESSION_OPENED to session 3
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:06:48,924 - org.apache.mina.core.filterchain.IoFilterEvent -104519 [pool-3-thread-2] DEBUG  - Firing a SESSION_OPENED event for session 3
+2014-09-18 15:06:48,925 - org.apache.mina.core.filterchain.IoFilterEvent -104520 [pool-3-thread-2] DEBUG  - Event SESSION_OPENED has been fired for session 3
+2014-09-18 15:06:49,012 - org.apache.mina.filter.codec.ProtocolCodecFilter -104607 [NioProcessor-4] DEBUG  - Processing a MESSAGE_RECEIVED for session 3
+2014-09-18 15:06:49,012 - org.apache.mina.filter.logging.LoggingFilter -104607 [NioProcessor-4] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:06:49,012 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -104607 [NioProcessor-4] DEBUG  - Adding event MESSAGE_RECEIVED to session 3
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:06:49,013 - org.apache.mina.core.filterchain.IoFilterEvent -104608 [pool-3-thread-2] DEBUG  - Firing a MESSAGE_RECEIVED event for session 3
+2014-09-18 15:07:09,017 - org.apache.mina.filter.logging.LoggingFilter -124612 [NioProcessor-4] INFO   - CLOSED
+2014-09-18 15:07:09,025 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -124620 [NioProcessor-4] DEBUG  - Adding event SESSION_CLOSED to session 3
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 15:08:07,046 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 15:08:07,049 - org.apache.mina.filter.logging.LoggingFilter -3    [NioProcessor-3] INFO   - OPENED
+2014-09-18 15:08:07,054 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -8    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:08:07,066 - org.apache.mina.core.filterchain.IoFilterEvent -20   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 15:08:07,068 - org.apache.mina.core.filterchain.IoFilterEvent -22   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 15:08:07,172 - org.apache.mina.filter.codec.ProtocolCodecFilter -126  [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 15:08:07,184 - org.apache.mina.filter.logging.LoggingFilter -138  [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:08:07,185 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -139  [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:08:07,185 - org.apache.mina.core.filterchain.IoFilterEvent -139  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 15:08:07,258 - org.apache.mina.core.filterchain.IoFilterEvent -212  [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 15:08:07,259 - org.apache.mina.filter.logging.LoggingFilter -213  [NioProcessor-3] INFO   - SENT: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:08:07,259 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -213  [NioProcessor-3] DEBUG  - Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+2014-09-18 15:08:07,270 - org.apache.mina.filter.logging.LoggingFilter -224  [NioProcessor-3] INFO   - CLOSED
+2014-09-18 15:08:07,270 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -224  [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [MESSAGE_SENT, , SESSION_CLOSED, ]
+
+2014-09-18 15:08:07,272 - org.apache.mina.core.filterchain.IoFilterEvent -226  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_SENT event for session 2
+2014-09-18 15:08:07,272 - org.apache.mina.core.filterchain.IoFilterEvent -226  [pool-3-thread-1] DEBUG  - Event MESSAGE_SENT has been fired for session 2
+2014-09-18 15:08:07,272 - org.apache.mina.core.filterchain.IoFilterEvent -226  [pool-3-thread-1] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 15:08:07,273 - org.apache.mina.core.filterchain.IoFilterEvent -227  [pool-3-thread-1] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 15:08:33,104 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 15:08:33,109 - org.apache.mina.filter.logging.LoggingFilter -5    [NioProcessor-3] INFO   - OPENED
+2014-09-18 15:08:33,113 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -9    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:08:33,120 - org.apache.mina.core.filterchain.IoFilterEvent -16   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 15:08:33,126 - org.apache.mina.core.filterchain.IoFilterEvent -22   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 15:08:33,209 - org.apache.mina.filter.codec.ProtocolCodecFilter -105  [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 15:08:33,216 - org.apache.mina.filter.logging.LoggingFilter -112  [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:08:33,216 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -112  [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:08:33,216 - org.apache.mina.core.filterchain.IoFilterEvent -112  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 15:08:53,214 - org.apache.mina.filter.logging.LoggingFilter -20110 [NioProcessor-3] INFO   - CLOSED
+2014-09-18 15:08:53,214 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -20110 [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 15:09:28,856 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 15:09:28,858 - org.apache.mina.filter.logging.LoggingFilter -2    [NioProcessor-3] INFO   - OPENED
+2014-09-18 15:09:28,863 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -7    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:09:28,868 - org.apache.mina.core.filterchain.IoFilterEvent -12   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 15:09:28,869 - org.apache.mina.core.filterchain.IoFilterEvent -13   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 15:09:28,949 - org.apache.mina.filter.codec.ProtocolCodecFilter -93   [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 15:09:28,956 - org.apache.mina.filter.logging.LoggingFilter -100  [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:09:28,956 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -100  [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:09:28,956 - org.apache.mina.core.filterchain.IoFilterEvent -100  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 15:12:55,075 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 15:12:55,080 - org.apache.mina.filter.logging.LoggingFilter -5    [NioProcessor-3] INFO   - OPENED
+2014-09-18 15:12:55,085 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -10   [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:12:55,093 - org.apache.mina.core.filterchain.IoFilterEvent -18   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 15:12:55,098 - org.apache.mina.core.filterchain.IoFilterEvent -23   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 15:12:55,165 - org.apache.mina.filter.codec.ProtocolCodecFilter -90   [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 15:12:55,172 - org.apache.mina.filter.logging.LoggingFilter -97   [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:12:55,172 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -97   [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:12:55,173 - org.apache.mina.core.filterchain.IoFilterEvent -98   [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 15:13:15,169 - org.apache.mina.filter.logging.LoggingFilter -20094 [NioProcessor-3] INFO   - CLOSED
+2014-09-18 15:13:15,169 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -20094 [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 15:13:54,915 - org.apache.mina.core.filterchain.IoFilterEvent -59840 [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 15:13:54,915 - org.apache.mina.core.filterchain.IoFilterEvent -59840 [pool-3-thread-1] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 15:13:54,916 - org.apache.mina.core.filterchain.IoFilterEvent -59841 [pool-3-thread-1] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 15:13:58,945 - org.apache.mina.filter.logging.LoggingFilter -63870 [NioProcessor-4] INFO   - CREATED
+2014-09-18 15:13:58,945 - org.apache.mina.filter.logging.LoggingFilter -63870 [NioProcessor-4] INFO   - OPENED
+2014-09-18 15:13:58,946 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -63871 [NioProcessor-4] DEBUG  - Adding event SESSION_OPENED to session 3
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:13:58,946 - org.apache.mina.core.filterchain.IoFilterEvent -63871 [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 3
+2014-09-18 15:13:58,946 - org.apache.mina.core.filterchain.IoFilterEvent -63871 [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 3
+2014-09-18 15:13:59,042 - org.apache.mina.filter.codec.ProtocolCodecFilter -63967 [NioProcessor-4] DEBUG  - Processing a MESSAGE_RECEIVED for session 3
+2014-09-18 15:13:59,042 - org.apache.mina.filter.logging.LoggingFilter -63967 [NioProcessor-4] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:13:59,043 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -63968 [NioProcessor-4] DEBUG  - Adding event MESSAGE_RECEIVED to session 3
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:13:59,043 - org.apache.mina.core.filterchain.IoFilterEvent -63968 [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 3
+2014-09-18 15:14:19,047 - org.apache.mina.filter.logging.LoggingFilter -83972 [NioProcessor-4] INFO   - CLOSED
+2014-09-18 15:14:19,047 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -83972 [NioProcessor-4] DEBUG  - Adding event SESSION_CLOSED to session 3
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 15:15:34,995 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 15:15:34,997 - org.apache.mina.filter.logging.LoggingFilter -2    [NioProcessor-3] INFO   - OPENED
+2014-09-18 15:15:35,000 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -5    [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:15:35,005 - org.apache.mina.core.filterchain.IoFilterEvent -10   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 15:15:35,006 - org.apache.mina.core.filterchain.IoFilterEvent -11   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 15:15:35,102 - org.apache.mina.filter.codec.ProtocolCodecFilter -107  [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 15:15:35,109 - org.apache.mina.filter.logging.LoggingFilter -114  [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:15:35,109 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -114  [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:15:35,109 - org.apache.mina.core.filterchain.IoFilterEvent -114  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 15:15:55,110 - org.apache.mina.filter.logging.LoggingFilter -20115 [NioProcessor-3] INFO   - CLOSED
+2014-09-18 15:15:55,111 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -20116 [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 15:16:20,535 - org.apache.mina.core.filterchain.IoFilterEvent -45540 [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 15:16:20,535 - org.apache.mina.core.filterchain.IoFilterEvent -45540 [pool-3-thread-1] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 15:16:20,536 - org.apache.mina.core.filterchain.IoFilterEvent -45541 [pool-3-thread-1] DEBUG  - Event SESSION_CLOSED has been fired for session 2
+2014-09-18 15:16:24,874 - org.apache.mina.filter.logging.LoggingFilter -49879 [NioProcessor-4] INFO   - CREATED
+2014-09-18 15:16:24,875 - org.apache.mina.filter.logging.LoggingFilter -49880 [NioProcessor-4] INFO   - OPENED
+2014-09-18 15:16:24,876 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -49881 [NioProcessor-4] DEBUG  - Adding event SESSION_OPENED to session 3
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:16:24,879 - org.apache.mina.core.filterchain.IoFilterEvent -49884 [pool-3-thread-2] DEBUG  - Firing a SESSION_OPENED event for session 3
+2014-09-18 15:16:24,879 - org.apache.mina.core.filterchain.IoFilterEvent -49884 [pool-3-thread-2] DEBUG  - Event SESSION_OPENED has been fired for session 3
+2014-09-18 15:16:24,956 - org.apache.mina.filter.codec.ProtocolCodecFilter -49961 [NioProcessor-4] DEBUG  - Processing a MESSAGE_RECEIVED for session 3
+2014-09-18 15:16:24,956 - org.apache.mina.filter.logging.LoggingFilter -49961 [NioProcessor-4] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:16:24,956 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -49961 [NioProcessor-4] DEBUG  - Adding event MESSAGE_RECEIVED to session 3
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:16:24,956 - org.apache.mina.core.filterchain.IoFilterEvent -49961 [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 3
+2014-09-18 15:16:44,961 - org.apache.mina.filter.logging.LoggingFilter -69966 [NioProcessor-4] INFO   - CLOSED
+2014-09-18 15:16:44,962 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -69967 [NioProcessor-4] DEBUG  - Adding event SESSION_CLOSED to session 3
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 15:17:28,501 - org.apache.mina.filter.logging.LoggingFilter -0    [NioProcessor-3] INFO   - CREATED
+2014-09-18 15:17:28,504 - org.apache.mina.filter.logging.LoggingFilter -3    [NioProcessor-3] INFO   - OPENED
+2014-09-18 15:17:28,518 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -17   [NioProcessor-3] DEBUG  - Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+2014-09-18 15:17:28,527 - org.apache.mina.core.filterchain.IoFilterEvent -26   [pool-3-thread-1] DEBUG  - Firing a SESSION_OPENED event for session 2
+2014-09-18 15:17:28,528 - org.apache.mina.core.filterchain.IoFilterEvent -27   [pool-3-thread-1] DEBUG  - Event SESSION_OPENED has been fired for session 2
+2014-09-18 15:17:28,612 - org.apache.mina.filter.codec.ProtocolCodecFilter -111  [NioProcessor-3] DEBUG  - Processing a MESSAGE_RECEIVED for session 2
+2014-09-18 15:17:28,620 - org.apache.mina.filter.logging.LoggingFilter -119  [NioProcessor-3] INFO   - RECEIVED: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:17:28,620 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -119  [NioProcessor-3] DEBUG  - Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+2014-09-18 15:17:28,620 - org.apache.mina.core.filterchain.IoFilterEvent -119  [pool-3-thread-1] DEBUG  - Firing a MESSAGE_RECEIVED event for session 2
+2014-09-18 15:17:42,547 - org.apache.mina.core.filterchain.IoFilterEvent -14046 [pool-3-thread-1] DEBUG  - Event MESSAGE_RECEIVED has been fired for session 2
+2014-09-18 15:17:42,547 - org.apache.mina.filter.logging.LoggingFilter -14046 [NioProcessor-3] INFO   - SENT: BaseMessage [version=1, bean=hell1o, serializeProtocol=HESSIAN, seq=0]
+2014-09-18 15:17:42,548 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -14047 [NioProcessor-3] DEBUG  - Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+2014-09-18 15:17:42,548 - org.apache.mina.core.filterchain.IoFilterEvent -14047 [pool-3-thread-1] DEBUG  - Firing a MESSAGE_SENT event for session 2
+2014-09-18 15:17:42,548 - org.apache.mina.core.filterchain.IoFilterEvent -14047 [pool-3-thread-1] DEBUG  - Event MESSAGE_SENT has been fired for session 2
+2014-09-18 15:17:42,578 - org.apache.mina.filter.logging.LoggingFilter -14077 [NioProcessor-3] INFO   - CLOSED
+2014-09-18 15:17:42,578 - org.apache.mina.filter.executor.OrderedThreadPoolExecutor -14077 [NioProcessor-3] DEBUG  - Adding event SESSION_CLOSED to session 2
+Queue : [SESSION_CLOSED, ]
+
+2014-09-18 15:17:42,578 - org.apache.mina.core.filterchain.IoFilterEvent -14077 [pool-3-thread-1] DEBUG  - Firing a SESSION_CLOSED event for session 2
+2014-09-18 15:17:42,579 - org.apache.mina.core.filterchain.IoFilterEvent -14078 [pool-3-thread-1] DEBUG  - Event SESSION_CLOSED has been fired for session 2
