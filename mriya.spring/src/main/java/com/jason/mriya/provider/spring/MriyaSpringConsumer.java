@@ -20,7 +20,7 @@ import com.jason.mriya.client.proxy.MriyaProxyFacotry;
  * <p>版本: version 1.0 </p>
  * </pre>
  */
-public class MriyaSpringProxyFacotry extends MriyaProxyFacotry implements
+public class MriyaSpringConsumer extends MriyaProxyFacotry implements
 		FactoryBean<Object> {
 
 	private static final int DEFAULT_IDEL_TIME_OUT = 60 * 10 * 1000;
@@ -38,7 +38,7 @@ public class MriyaSpringProxyFacotry extends MriyaProxyFacotry implements
 
 	private Object obj;
 
-	public MriyaSpringProxyFacotry() {
+	public MriyaSpringConsumer() {
 		super();
 		super.getNetworkConfig().setConnectTimeout(connTimeout);
 		super.getNetworkConfig().setReadTimeout(readTimeout);
@@ -46,11 +46,11 @@ public class MriyaSpringProxyFacotry extends MriyaProxyFacotry implements
 		super.getNetworkConfig().setIdleTimeout(idleTimeout);
 	}
 
-	public MriyaSpringProxyFacotry(ConnConfig networkConfig) {
+	public MriyaSpringConsumer(ConnConfig networkConfig) {
 		super(networkConfig);
 	}
 
-	public MriyaSpringProxyFacotry(ConnConfig networkConfig, ClassLoader loader) {
+	public MriyaSpringConsumer(ConnConfig networkConfig, ClassLoader loader) {
 		super(networkConfig, loader);
 	}
 

@@ -60,13 +60,13 @@ public class HessianRemoteProxy implements InvocationHandler, Serializable {
 	private TranProtocol protocol;
 
 	public HessianRemoteProxy(ConnURL url,
-			MriyaHessianProxyFactory syncMissianProxyFactory) {
+			MriyaHessianProxyFactory syncHessianProxyFactory) {
 		super();
 		this.host = url.getHost();
 		this.port = url.getPort();
 		this.beanName = url.getQuery();
 		this.protocol = url.getProtocol();
-		this._factory = syncMissianProxyFactory;
+		this._factory = syncHessianProxyFactory;
 	}
 
 	/**
@@ -123,7 +123,8 @@ public class HessianRemoteProxy implements InvocationHandler, Serializable {
 		SocketWrapper conn = null;
 		try {
 			if (log.isDebugEnabled()) {
-				log.debug("Missian[" + toString() + "] calling " + mangleName);
+				log.debug("Mriay Hessian proxy [{} ] calling {}", toString(),
+						mangleName);
 			}
 
 			conn = _factory.getSocket(host, port);
@@ -418,7 +419,7 @@ public class HessianRemoteProxy implements InvocationHandler, Serializable {
 
 	@Override
 	public String toString() {
-		return "SyncMissianProxy [beanName=" + beanName + ", port=" + port
+		return "Mriay hessian Proxy [beanName=" + beanName + ", port=" + port
 				+ ", host=" + host + "]";
 	}
 
