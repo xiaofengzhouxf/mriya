@@ -96,7 +96,7 @@ public class MriyaSpringExporter extends MriyaRpcExporter implements
 			ByteBuffer byteBuffer = ByteBuffer.wrap(bodystream);
 			IoBuffer bf = IoBuffer.wrap(byteBuffer);
 
-			rpcRequest = (RpcRequest) codec.decode(new IoBufferInputStream(bf));
+			codec.decode(rpcRequest, new IoBufferInputStream(bf));
 			resp.setSerializeProtocol(rpcRequest.getSerializeProtocol());
 
 			// invoke
