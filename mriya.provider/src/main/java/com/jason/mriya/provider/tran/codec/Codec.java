@@ -3,9 +3,9 @@ package com.jason.mriya.provider.tran.codec;
 import com.jason.mriya.client.conn.io.IoBufferInputStream;
 import com.jason.mriya.client.conn.io.IoBufferOutputStream;
 
-public interface Codec {
+public interface Codec<R, P> {
 
-	public IoBufferOutputStream encode(Object resp);
+	public IoBufferOutputStream encode(P resp);
 
-	public Object decode(IoBufferInputStream in);
+	public boolean decode(R req, IoBufferInputStream in);
 }

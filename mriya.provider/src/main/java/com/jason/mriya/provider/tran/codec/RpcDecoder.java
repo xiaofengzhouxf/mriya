@@ -1,11 +1,17 @@
 package com.jason.mriya.provider.tran.codec;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.CumulativeProtocolDecoder;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jason.mriya.client.conn.io.IoBufferInputStream;
+import com.jason.mriya.client.contants.Constants;
 import com.jason.mriya.provider.tran.RpcRequest;
 
 /**
@@ -23,13 +29,29 @@ import com.jason.mriya.provider.tran.RpcRequest;
  * </pre>
  */
 public class RpcDecoder extends CumulativeProtocolDecoder {
-	public MriyaCodec codec = new MriyaCodec();
+	private static final Logger log = LoggerFactory.getLogger(RpcDecoder.class);
+
+	private MriyaCodec codec = new MriyaCodec();
+	private RpcRequest request = new RpcRequest();
 
 	@Override
 	protected boolean doDecode(IoSession session, IoBuffer in,
 			ProtocolDecoderOutput out) throws Exception {
-		RpcRequest request = (RpcRequest) codec.decode(new IoBufferInputStream(
-				in));
+
+		try {
+			if (!codec.decode(request, new IoBufferInputStream(in))) {
+				return false;
+			}
+		} catch (Throwable e) {
+			log.error("Decode exception.", e);
+			request = new RpcRequest();
+			request.setBean(Constants.EXCEPTION_METHOD);
+
+			InputStream errorIn = new ByteArrayInputStream(
+					"Input content error, decode exception.".getBytes());
+
+			request.setInputStream(errorIn);
+		}
 
 		out.write(request);
 		return true;
