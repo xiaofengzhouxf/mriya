@@ -3,6 +3,7 @@ package com.jason.mriya.provider.server;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.filter.executor.ExecutorFilter;
@@ -39,30 +40,35 @@ public class StandaloneServer {
 	private static final String THREAD_POOL = "threadPool";
 	private static final String LOG = "log";
 	private static final String CODEC = "codec";
+	private volatile AtomicBoolean started = new AtomicBoolean();
 	// =============
 
 	private int workSize = THREAD_POOL_SIZE;
 
 	private final ServerHandler handler = new ServerHandler();
 
-	public void start(int port) throws IOException {
-		NioSocketAcceptor acceptor = new NioSocketAcceptor();
-		acceptor.setDefaultLocalAddress(new InetSocketAddress(port));
-		acceptor.setHandler(handler);
-		acceptor.getSessionConfig().setReuseAddress(true);
-		// use obb silently discarded, for heart beat.
-		// acceptor.getSessionConfig().setOobInline(true);
-		// acceptor.getSessionConfig()
-		// .setIdleTime(IdleStatus.BOTH_IDLE, IDLE_TIME);
-		acceptor.getFilterChain().addLast(CODEC,
-				new ProtocolCodecFilter(new RpcCodecFactory()));
-		acceptor.getFilterChain().addLast(LOG, new LoggingFilter());
-		acceptor.getFilterChain().addLast(
-				THREAD_POOL,
-				new ExecutorFilter(workSize, workSize,
-						THREAD_POOL_IDLE_TIME_OUT, TimeUnit.SECONDS));
+	public synchronized void start(int port) throws IOException {
 
-		acceptor.bind();
+		if (!started.get()) {
+			NioSocketAcceptor acceptor = new NioSocketAcceptor();
+			acceptor.setDefaultLocalAddress(new InetSocketAddress(port));
+			acceptor.setHandler(handler);
+			acceptor.getSessionConfig().setReuseAddress(true);
+			// use obb silently discarded, for heart beat.
+			// acceptor.getSessionConfig().setOobInline(true);
+			// acceptor.getSessionConfig()
+			// .setIdleTime(IdleStatus.BOTH_IDLE, IDLE_TIME);
+			acceptor.getFilterChain().addLast(CODEC,
+					new ProtocolCodecFilter(new RpcCodecFactory()));
+			acceptor.getFilterChain().addLast(LOG, new LoggingFilter());
+			acceptor.getFilterChain().addLast(
+					THREAD_POOL,
+					new ExecutorFilter(workSize, workSize,
+							THREAD_POOL_IDLE_TIME_OUT, TimeUnit.SECONDS));
+
+			acceptor.bind();
+			started.compareAndSet(false, true);
+		}
 	}
 
 	/**
@@ -100,4 +106,9 @@ public class StandaloneServer {
 		this.workSize = workSize;
 		return this;
 	}
+
+	public boolean isStarted() {
+		return started.get();
+	}
+
 }

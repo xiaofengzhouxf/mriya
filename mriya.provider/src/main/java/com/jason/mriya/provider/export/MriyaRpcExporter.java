@@ -1,6 +1,7 @@
 package com.jason.mriya.provider.export;
 
 import com.jason.mriya.client.contants.TranProtocol;
+import com.jason.mriya.client.exception.MriyaRuntimeException;
 
 /**
  * 
@@ -23,6 +24,7 @@ public class MriyaRpcExporter implements RemoteExporter {
 	private String name;
 	private Object service;
 	private Class<?> inter;
+	private String serviceInterface;
 
 	public MriyaRpcExporter(String protocol, String name, Object service,
 			Class<?> inter) {
@@ -82,6 +84,15 @@ public class MriyaRpcExporter implements RemoteExporter {
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	public void setServiceInterface(String serviceInterface) {
+		this.serviceInterface = serviceInterface;
+		try {
+			setServiceInterface(Class.forName(this.serviceInterface));
+		} catch (ClassNotFoundException e) {
+			throw new MriyaRuntimeException(e);
+		}
 	}
 
 }

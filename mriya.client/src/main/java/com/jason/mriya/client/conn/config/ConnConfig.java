@@ -10,13 +10,13 @@ package com.jason.mriya.client.conn.config;
  * </pre>
  */
 public class ConnConfig {
-	private int connectTimeout = 20;// in seconds;
+	private int connectTimeout = 3;// in seconds;
 	private boolean tcpNoDelay = true;
 	private boolean reuseAddress = true;
 	private int soLinger = -1;
 	private int sendBufferSize = 256;
 	private int receiveBufferSize = 1024;
-	private int readTimeout = 20;// in seconds;
+	private int readTimeout = 3;// in seconds;
 
 	// connect pool size
 	private int poolSize = 20;
