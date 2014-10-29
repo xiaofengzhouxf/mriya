@@ -80,7 +80,7 @@ public class SimpleSocketFactory implements KeyedPoolableObjectFactory {
 
 		log.debug("[pool validate] {}", socket.isActive());
 
-		return socket.isActive();
+		return socket.isActive() && !socket.isFailed();
 	}
 
 }

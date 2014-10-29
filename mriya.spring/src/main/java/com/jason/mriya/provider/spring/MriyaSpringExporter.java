@@ -81,7 +81,7 @@ public class MriyaSpringExporter extends MriyaRpcExporter implements
 		RpcResponse resp = new RpcResponse();
 		ServletInputStream inputStream = request.getInputStream();
 		ServletOutputStream outputStream = response.getOutputStream();
-		RpcRequest rpcRequest = null;
+		RpcRequest rpcRequest = new RpcRequest();;
 
 		try {
 			// decode

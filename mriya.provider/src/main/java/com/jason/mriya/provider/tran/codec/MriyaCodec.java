@@ -13,18 +13,21 @@ import com.jason.mriya.provider.tran.RpcRequest;
 import com.jason.mriya.provider.tran.RpcResponse;
 
 public class MriyaCodec implements Codec<RpcRequest, RpcResponse> {
-	private static final int STEP_6_FIN = 6;
-	private static final int STEP_5_CONTENT = 5;
-	private static final int STEP_4_CONTENT_LENGTH = 4;
-	private static final int STEP_3_SEQ = 3;
-	private static final int STEP_2_BEANNAME = 2;
+	private static final int STEP_7_FIN = 7;
+	private static final int STEP_6_CONTENT = 6;
+	private static final int STEP_5_CONTENT_LENGTH = 5;
+	private static final int STEP_4_SEQ = 4;
+	private static final int STEP_3_BEANNAME = 3;
+	private static final int STEP_2_BEANNAME_LEN = 2;
 	private static final int STEP_1_PROTOCOL = 1;
 	private static final int STEP_0_VERSION = 0;
 	private static final Logger log = LoggerFactory.getLogger(MriyaCodec.class);
 	private static final int _1024 = 1024;
 
+
 	private int decodeStep = 0;
 	private int contentLength;
+	private byte beanNameLenth;
 
 	public IoBufferOutputStream encode(RpcResponse resp) {
 
@@ -77,7 +80,7 @@ public class MriyaCodec implements Codec<RpcRequest, RpcResponse> {
 				request.setBean(Constants.HEART_BEAT);
 			} else if (version != 1) {
 				throw new MriyaRuntimeException(
-						"version not support protocol. ");
+						"version not support protocol. " + version);
 			}
 
 		case STEP_1_PROTOCOL:
@@ -86,25 +89,29 @@ public class MriyaCodec implements Codec<RpcRequest, RpcResponse> {
 			}
 			byte protocol = in.get();
 			request.setSerializeProtocol(TranProtocol.convert(protocol));
-			decodeStep = STEP_2_BEANNAME;
+			decodeStep = STEP_2_BEANNAME_LEN;
 
 			if (protocol != 100) {
 				throw new MriyaRuntimeException(
 						"version not support protocol. ");
 			}
 
-		case STEP_2_BEANNAME:
-
+		case STEP_2_BEANNAME_LEN:
 			// beanname
 			if (in.remaining() == 0) {
 				return false;
 			}
-			byte beanNameLenth = in.get();
+			beanNameLenth = in.get();
+
+			decodeStep = STEP_3_BEANNAME;
+
+		case STEP_3_BEANNAME:
+			if (in.remaining() < beanNameLenth) {
+				return false;
+			}
+			
 			byte[] beanname = new byte[beanNameLenth];
 			for (byte i = 0; i < beanNameLenth; i++) {
-				if (in.remaining() == 0) {
-					return false;
-				}
 				beanname[i] = in.get();
 			}
 			try {
@@ -113,32 +120,32 @@ public class MriyaCodec implements Codec<RpcRequest, RpcResponse> {
 				throw new MriyaRuntimeException("encode exception.", e);
 			}
 
-			decodeStep = STEP_3_SEQ;
+			decodeStep = STEP_4_SEQ;
 
-		case STEP_3_SEQ:
+		case STEP_4_SEQ:
 			// seq
 			if (in.remaining() == 0) {
 				return false;
 			}
 			int seq = in.getInt();
 			request.setSeq(seq);
-			decodeStep = STEP_4_CONTENT_LENGTH;
+			decodeStep = STEP_5_CONTENT_LENGTH;
 
-		case STEP_4_CONTENT_LENGTH:
+		case STEP_5_CONTENT_LENGTH:
 			// content
 			if (in.remaining() == 0) {
 				return false;
 			}
 			contentLength = in.getInt();
 
-			decodeStep = STEP_5_CONTENT;
-		case STEP_5_CONTENT:
-
-			byte[] dst = new byte[contentLength];
+			decodeStep = STEP_6_CONTENT;
+		case STEP_6_CONTENT:
 
 			if (in.remaining() < contentLength) {
 				return false;
 			}
+			
+			byte[] dst = new byte[contentLength];
 			in.get(dst);
 			IoBuffer newIoBuffer = IoBuffer.allocate(contentLength);
 			newIoBuffer.put(dst);
@@ -146,13 +153,20 @@ public class MriyaCodec implements Codec<RpcRequest, RpcResponse> {
 			IoBufferInputStream bufferInputStream = new IoBufferInputStream(
 					newIoBuffer);
 			request.setInputStream(bufferInputStream);
-			decodeStep = STEP_6_FIN;
+			decodeStep = STEP_7_FIN;
 		}
-		if (in.hasRemaining()) {
-
-			in.get(new byte[in.remaining()]);
-		}
+		// if (in.hasRemaining()) {
+		// System.out.println(" log remain::: "+ in.remaining() );
+		// in.get(new byte[in.remaining()]);
+		// }
 
 		return true;
 	}
+
+	public void clearStep() {
+		decodeStep = STEP_0_VERSION;
+	}
+	
+	
+	
 }

@@ -129,22 +129,33 @@ public class SocketWrapper extends Socket {
 
 		@Override
 		public void run() {
-			while (socket != null && !socket.isClosed()) {
+			// while (socket != null && !socket.isClosed()) {
+			// try {
+			// Thread.sleep(socket.getKeepAliveTime());
+			// } catch (InterruptedException e) {
+			// }
+			//
+			// try {
+			// socket.sendUrgentData(Constants.HEART_BEAT_REQ);
+			//
+			// log.debug("send heart beat");
+			// } catch (IOException e) {
+			// log.error("socket exception.", e);
+			// try {
+			// socket.close();
+			// } catch (IOException e1) {
+			// }
+			// }
+			// }
+
+			while (socket != null) {
 				try {
 					Thread.sleep(socket.getKeepAliveTime());
 				} catch (InterruptedException e) {
 				}
 
-				try {
-					socket.sendUrgentData(Constants.HEART_BEAT_REQ);
-
-					log.debug("send heart beat");
-				} catch (IOException e) {
-					log.error("socket exception.", e);
-					try {
-						socket.close();
-					} catch (IOException e1) {
-					}
+				if (!socket.isActive()) {
+					socket.failed = true;
 				}
 			}
 		}

@@ -34,13 +34,16 @@ public class RpcDecoder extends CumulativeProtocolDecoder {
 	private MriyaCodec codec = new MriyaCodec();
 	private RpcRequest request = new RpcRequest();
 
+
 	@Override
 	protected boolean doDecode(IoSession session, IoBuffer in,
 			ProtocolDecoderOutput out) throws Exception {
 
+		log.debug("total::{}", in.remaining());
+
 		try {
 			if (!codec.decode(request, new IoBufferInputStream(in))) {
-				return false;
+				return true;
 			}
 		} catch (Throwable e) {
 			log.error("Decode exception.", e);
@@ -53,7 +56,16 @@ public class RpcDecoder extends CumulativeProtocolDecoder {
 			request.setInputStream(errorIn);
 		}
 
+		if (in.hasRemaining()) {
+			log.debug("total remain::{}", in.remaining());
+			// in.get(new byte[in.remaining()]);
+			return true;
+		}
+
+		codec.clearStep();
 		out.write(request);
-		return true;
+		
+		request = new RpcRequest();
+		return false;
 	}
 }
