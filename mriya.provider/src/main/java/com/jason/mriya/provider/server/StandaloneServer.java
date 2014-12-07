@@ -2,6 +2,7 @@ package com.jason.mriya.provider.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -10,9 +11,12 @@ import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 
+import com.jason.mriya.client.contants.TranProtocol;
 import com.jason.mriya.client.exception.MriyaRuntimeException;
 import com.jason.mriya.provider.export.RemoteExporter;
 import com.jason.mriya.provider.tran.codec.RpcCodecFactory;
+import com.jason.mriya.register.RegisterInfo;
+import com.jason.mriya.register.RegsiterContainer;
 
 /**
  * 
@@ -68,6 +72,41 @@ public class StandaloneServer {
 
 			acceptor.bind();
 			started.compareAndSet(false, true);
+
+			// register service
+			if (RegsiterContainer.getInstance().hasCenter()) {
+				Collection<RemoteExporter> listExporters = handler
+						.listExporters();
+
+				for (RemoteExporter export : listExporters) {
+					RegisterInfo info = new RegisterInfo();
+					info.setGroupId(export.getGroupId());
+					info.setIp("");
+					info.setPort(port);
+					info.setProtocol(TranProtocol.valueOf(export.getProtocol())
+							.getCode());
+					info.setService(export.getName());
+					RegsiterContainer.getInstance().registerService(info);
+				}
+			}
+
+			Runtime.getRuntime().addShutdownHook(new Thread() {
+
+				public void run() {
+					// remove service
+					if (RegsiterContainer.getInstance().hasCenter()) {
+						Collection<RemoteExporter> listExporters = handler
+								.listExporters();
+
+						for (RemoteExporter export : listExporters) {
+							RegsiterContainer.getInstance()
+									.removeRegisterService(export.getGroupId(),
+											export.getName());
+						}
+					}
+				}
+			});
+
 		}
 	}
 

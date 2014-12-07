@@ -20,23 +20,26 @@ import com.jason.mriya.client.exception.MriyaRuntimeException;
 public class MriyaRpcExporter implements RemoteExporter {
 
 	private String protocol = TranProtocol.HESSIAN.name();
-
+	private String groupId;
 	private String name;
 	private Object service;
 	private Class<?> inter;
 	private String serviceInterface;
 
-	public MriyaRpcExporter(String protocol, String name, Object service,
-			Class<?> inter) {
+	public MriyaRpcExporter(String protocol, String name, String groupId,
+			Object service, Class<?> inter) {
 		super();
+		this.groupId = groupId;
 		this.protocol = protocol;
 		this.name = name;
 		this.service = service;
 		this.inter = inter;
 	}
 
-	public MriyaRpcExporter(String name, Object service, Class<?> inter) {
+	public MriyaRpcExporter(String name, String groupId, Object service,
+			Class<?> inter) {
 		super();
+		this.groupId = groupId;
 		this.name = name;
 		this.service = service;
 		this.inter = inter;
@@ -84,6 +87,14 @@ public class MriyaRpcExporter implements RemoteExporter {
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	public String getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
 	}
 
 	public void setServiceInterface(String serviceInterface) {

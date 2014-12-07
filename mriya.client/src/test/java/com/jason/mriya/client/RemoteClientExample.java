@@ -31,7 +31,7 @@ public class RemoteClientExample {
 							long currentTimeMillis = System.currentTimeMillis();
 
 							final HelloWorld hello = (HelloWorld) factory
-									.create(HelloWorld.class,
+									.create(HelloWorld.class, "test", "hello",
 											"hessian://localhost:9090/hello");
 
 							hello.hello("hello");

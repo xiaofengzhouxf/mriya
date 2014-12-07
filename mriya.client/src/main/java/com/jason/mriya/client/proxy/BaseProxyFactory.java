@@ -25,9 +25,11 @@ public abstract class BaseProxyFactory {
 	private boolean overloadEnabled = true;
 	private ConnConfig networkConfig = null;
 
-	public abstract Object create(Class<?> api, String url, ClassLoader loader);
+	public abstract Object create(Class<?> api, String groupId, String name,
+			String url, ClassLoader loader);
 
-	public abstract Object create(Class<?> api, String url);
+	public abstract Object create(Class<?> api, String groupId, String name,
+			String url);
 
 	public int getConnectTimeout() {
 		return networkConfig.getConnectTimeout();

@@ -1,6 +1,7 @@
 package com.jason.mriya.provider.server;
 
 import java.io.InputStream;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
@@ -127,5 +128,10 @@ class ServerHandler extends IoHandlerAdapter {
 	public void sessionIdle(IoSession session, IdleStatus status)
 			throws Exception {
 		// session.close(false);
+	}
+
+	public Collection<RemoteExporter> listExporters() {
+
+		return RemoteInvokerFactory.listService();
 	}
 }

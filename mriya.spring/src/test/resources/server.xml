@@ -5,5 +5,6 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 http://github.com/xiaofengzhouxf/mriya http://github.com/xiaofengzhouxf/mriya/mriya.xsd">
 
 	<bean id="demo" class="mriya.spring.Demo" />
-	<mriya:server id="hello" service="demo" serviceInterface="mriya.spring.Hello" />
+	<mriya:server id="hello" groupId="test" service="demo"
+		serviceInterface="mriya.spring.Hello" />
 </beans> 

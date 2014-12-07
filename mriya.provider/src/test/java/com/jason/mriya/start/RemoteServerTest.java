@@ -15,8 +15,8 @@ public class RemoteServerTest extends TestCase {
 
 		HelloWorldImpl hello = new HelloWorldImpl();
 
-		MriyaRpcExporter exporter = new MriyaRpcExporter("hello", hello,
-				HelloWorld.class);
+		MriyaRpcExporter exporter = new MriyaRpcExporter("hello", "test",
+				hello, HelloWorld.class);
 
 		new StandaloneServer().add(exporter).start(9090);
 
@@ -25,5 +25,4 @@ public class RemoteServerTest extends TestCase {
 
 		assertTrue(true);
 	}
-
 }

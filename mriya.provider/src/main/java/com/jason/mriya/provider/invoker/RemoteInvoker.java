@@ -37,4 +37,10 @@ public interface RemoteInvoker {
 			throws Exception;
 
 	public TranProtocol supportSerializeProtocol();
+
+	public String getService();
+
+	public String getGroupId();
+
+	public int getProtocol();
 }

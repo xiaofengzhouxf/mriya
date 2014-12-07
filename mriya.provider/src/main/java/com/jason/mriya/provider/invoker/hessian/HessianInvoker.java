@@ -37,15 +37,20 @@ import com.jason.mriya.provider.invoker.RemoteInvoker;
 public class HessianInvoker implements RemoteInvoker {
 	private SerializerFactory serializerFactory = new SerializerFactory();
 	private HessianSkeletonProxy proxy;
+	private String name;
+	private String groupId;
 
-	public HessianInvoker(final Object bean, final Class<?> beanClass) {
+	public HessianInvoker(String name, String groupId, final Object bean,
+			final Class<?> beanClass) {
 		proxy = new HessianSkeletonProxy(bean, beanClass);
+		this.name = name;
+		this.groupId = groupId;
 	}
 
 	@Override
 	public String handlerRequest(InputStream in, OutputStream out)
 			throws Exception {
-		
+
 		return proxy.invoke(in, out, serializerFactory);
 
 	}
@@ -53,6 +58,21 @@ public class HessianInvoker implements RemoteInvoker {
 	@Override
 	public TranProtocol supportSerializeProtocol() {
 		return TranProtocol.HESSIAN;
+	}
+
+	@Override
+	public String getService() {
+		return name;
+	}
+
+	@Override
+	public String getGroupId() {
+		return groupId;
+	}
+
+	@Override
+	public int getProtocol() {
+		return TranProtocol.HESSIAN.getCode();
 	}
 
 }

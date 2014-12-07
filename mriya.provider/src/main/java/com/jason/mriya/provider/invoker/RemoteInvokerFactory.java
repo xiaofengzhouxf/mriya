@@ -1,5 +1,6 @@
 package com.jason.mriya.provider.invoker;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 import com.jason.mriya.client.contants.TranProtocol;
@@ -25,6 +26,8 @@ public class RemoteInvokerFactory {
 
 	private final static HashMap<String, RemoteInvoker> invokerCache = new HashMap<String, RemoteInvoker>(
 			10);
+	private final static HashMap<String, RemoteExporter> exportCache = new HashMap<String, RemoteExporter>(
+			10);
 
 	public static RemoteInvoker create(RemoteExporter exporter) {
 
@@ -40,12 +43,15 @@ public class RemoteInvokerFactory {
 		// FIXME 后续来考虑扩展，serviceloader之类
 		if (TranProtocol.valueOf(exporter.getProtocol().toUpperCase()) == TranProtocol.HESSIAN) {
 
-			invoker = new HessianInvoker(exporter.getService(),
+			invoker = new HessianInvoker(exporter.getName(),
+					exporter.getGroupId(), exporter.getService(),
 					exporter.getServiceInterface() != null ? exporter
 							.getServiceInterface() : exporter.getService()
 							.getClass());
 			invokerCache.put(exporter.getName(), invoker);
 
+			exportCache.put(exporter.getGroupId() + exporter.getName(),
+					exporter);
 		} else {
 			throw new MriyaRuntimeException("Not support this protocol: "
 					+ exporter.getProtocol());
@@ -57,5 +63,9 @@ public class RemoteInvokerFactory {
 
 	public static RemoteInvoker lookup(String bean) {
 		return invokerCache.get(bean);
+	}
+
+	public static Collection<RemoteExporter> listService() {
+		return exportCache.values();
 	}
 }

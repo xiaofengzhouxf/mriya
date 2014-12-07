@@ -60,7 +60,8 @@ public class MriyaHessianProxyFactory extends BaseProxyFactory {
 		this.connectionKeepAlive = true;
 	}
 
-	public Object create(Class<?> api, String url, ClassLoader loader) {
+	public Object create(Class<?> api, String url, String groupId, String name,
+			ClassLoader loader) {
 		if (api == null)
 			throw new NullPointerException(
 					"api must not be null for HessianProxyFactory.create()");
@@ -75,8 +76,9 @@ public class MriyaHessianProxyFactory extends BaseProxyFactory {
 
 	}
 
-	public Object create(Class<?> api, String url) {
-		return create(api, url, Thread.currentThread().getContextClassLoader());
+	public Object create(Class<?> api, String groupId, String name, String url) {
+		return create(api, url, null, null, Thread.currentThread()
+				.getContextClassLoader());
 	}
 
 	public SocketWrapper getSocket(String host, int port) throws Exception {
@@ -175,4 +177,5 @@ public class MriyaHessianProxyFactory extends BaseProxyFactory {
 	public void setHessian2Response(boolean hessian2Response) {
 		this.hessian2Response = hessian2Response;
 	}
+
 }

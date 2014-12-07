@@ -25,15 +25,18 @@ public class MriyaSpringConsumer extends MriyaProxyFacotry implements
 
 	private static final int DEFAULT_IDEL_TIME_OUT = 60 * 10 * 1000;
 	private static final int DEFAULT_POOL_SIZE = 8;
+	private String groupId;
+	private String name;
+
 	private String url;
 	private String api;
-	//连接超时时间
+	// 连接超时时间
 	private int connTimeout;
-	//读超时时间
+	// 读超时时间
 	private int readTimeout;
-	//连接池大小
+	// 连接池大小
 	private int poolSize = DEFAULT_POOL_SIZE;
-	//连接闲置回收时间
+	// 连接闲置回收时间
 	private int idleTimeout = DEFAULT_IDEL_TIME_OUT;
 
 	private Object obj;
@@ -61,9 +64,18 @@ public class MriyaSpringConsumer extends MriyaProxyFacotry implements
 			if (StringUtils.isBlank(api)) {
 				throw new Exception("api :" + api + " not found.");
 			}
-			obj = super.create(this.getClass().forName(api), url);
+			obj = super
+					.create(this.getClass().forName(api), groupId, name, url);
 		}
 		return obj;
+	}
+
+	public String getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
 	}
 
 	public String getApi() {
@@ -130,5 +142,13 @@ public class MriyaSpringConsumer extends MriyaProxyFacotry implements
 
 	public void setIdleTimeout(int idleTimeout) {
 		this.idleTimeout = idleTimeout;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

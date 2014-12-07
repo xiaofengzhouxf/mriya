@@ -10,6 +10,7 @@
 				<xsd:extension base="beans:identifiedType">
 					<xsd:attribute name="workSize" type="xsd:string" />
 					<xsd:attribute name="port" type="xsd:int" />
+					<xsd:attribute name="groupId" type="xsd:string" />
 					<xsd:attribute name="service" type="xsd:string" />
 					<xsd:attribute name="serviceInterface" type="xsd:string" />
 				</xsd:extension>
@@ -26,6 +27,8 @@
 					<xsd:attribute name="readTimeout" type="xsd:int" />
 					<xsd:attribute name="api" type="xsd:string" />
 					<xsd:attribute name="url" type="xsd:string" />
+					<xsd:attribute name="groupId" type="xsd:string" />
+					<xsd:attribute name="name" type="xsd:string" />
 				</xsd:extension>
 			</xsd:complexContent>
 		</xsd:complexType>

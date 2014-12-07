@@ -1,7 +1,6 @@
 package com.jason.mriya.client.proxy;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import org.apache.commons.lang.StringUtils;
 
 import com.jason.mriya.client.conn.config.ConnConfig;
 import com.jason.mriya.client.conn.config.ConnURL;
@@ -9,6 +8,8 @@ import com.jason.mriya.client.conn.socket.SimpleSocketPool;
 import com.jason.mriya.client.contants.TranProtocol;
 import com.jason.mriya.client.exception.MriyaRuntimeException;
 import com.jason.mriya.client.proxy.hessian.MriyaHessianProxyFactory;
+import com.jason.mriya.register.RegisterInfo;
+import com.jason.mriya.register.RegsiterContainer;
 
 /**
  * 
@@ -48,7 +49,36 @@ public class MriyaProxyFacotry extends BaseProxyFactory {
 	}
 
 	@Override
-	public Object create(Class<?> api, String url, ClassLoader loader) {
+	public Object create(Class<?> api, String groupId, String name, String url,
+			ClassLoader loader) {
+
+		// 没有指定url，从注册中心中获取
+		if (StringUtils.isBlank(url)
+				&& RegsiterContainer.getInstance().hasCenter()) {
+			RegisterInfo info = RegsiterContainer.getInstance()
+					.findRegisterService(groupId, name);
+
+			StringBuilder sb = new StringBuilder();
+
+			if (info.getProtocol() == TranProtocol.HESSIAN.getCode()) {
+				sb.append("hessian://");
+			}
+
+			else if (info.getProtocol() == TranProtocol.HTTP.getCode()) {
+				sb.append("http://");
+			}
+
+			if (StringUtils.isNotBlank(sb.toString())) {
+				sb.append(info.getIp()).append(":").append(info.getPort())
+						.append("/").append(info.getService());
+
+				url = sb.toString();
+			}
+		}
+
+		if (StringUtils.isBlank(url)) {
+			throw new MriyaRuntimeException("url is blank .");
+		}
 
 		ConnURL u = new ConnURL(url);
 
@@ -59,7 +89,7 @@ public class MriyaProxyFacotry extends BaseProxyFactory {
 					super.getNetworkConfig(), new SimpleSocketPool(
 							super.getNetworkConfig()));
 
-			return hf.create(api, url, loader);
+			return hf.create(api, null, null, url, loader);
 
 		} else {
 			throw new MriyaRuntimeException("Hessian not suppor for: " + url);
@@ -67,9 +97,10 @@ public class MriyaProxyFacotry extends BaseProxyFactory {
 	}
 
 	@Override
-	public Object create(Class<?> api, String url) {
+	public Object create(Class<?> api, String groupId, String name, String url) {
 
-		return create(api, url, Thread.currentThread().getContextClassLoader());
+		return create(api, groupId, name, url, Thread.currentThread()
+				.getContextClassLoader());
 	}
 
 }

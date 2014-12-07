@@ -29,6 +29,8 @@ package com.jason.mriya.provider.export;
  */
 public interface RemoteExporter {
 
+	public void setGroupId(String groupId);
+
 	/**
 	 * 
 	 * <pre>
@@ -84,4 +86,6 @@ public interface RemoteExporter {
 	public String getProtocol();
 
 	public String getName();
+
+	public String getGroupId();
 }
